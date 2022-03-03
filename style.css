@@ -1,0 +1,203 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.color-prop {
+    position: relative;
+}
+
+.color-prop>input {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.page-name {
+    background-color: #107C41;
+    height: 2.5rem;
+    color: #FFF;
+    text-align: center;
+    padding: 5px;
+    font-weight: 400;
+}
+
+.page-actions-cont {
+    height: 2.5rem;
+    background-color: #107C41;
+    display: flex;
+}
+
+.page-action {
+    margin: 0.5rem;
+    color: #FFF;
+    height: 10%;
+    font-family: sans-serif;
+}
+
+.cellprops-action-cont {
+    height: 3rem;
+    display: flex;
+    background-color: rgb(243, 242, 241);
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.cellprops-action-cont :hover {
+    cursor: pointer;
+}
+
+.cellprops-action-cont>select {
+    outline: none;
+    border: none;
+    padding: 6px;
+    border-radius: 2px;
+}
+
+.cellprops-action-cont>* {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.forumla-actions-cont {
+    height: 2.5rem;
+    background-color: rgb(222, 222, 222);
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.formula-bar {
+    width: calc(100vw - 5rem - 0.7rem - 0.7rem - 0.7rem);
+}
+
+.forumla-actions-cont>* {
+    display: inline-block;
+    margin-right: 0.7rem;
+}
+
+.formula-icon {
+    width: 1.3rem;
+}
+
+.address-bar {
+    width: 5rem;
+    text-align: center;
+}
+
+.forumla-actions-cont>input {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    height: 50%;
+}
+
+.grid-cont {
+    height: calc(100vh - 12.5rem);
+    position: relative;
+    overflow: scroll;
+    background-color: #ecf0f1;
+    /* background-color: lightgray; */
+}
+
+.select-all {
+    height: 2rem;
+    width: 2rem;
+    background-color: gray;
+    position: fixed;
+    z-index: 4;
+}
+
+.address-col-cont {
+    position: sticky;
+    top: 2rem;
+    left: 0;
+}
+
+.address-row-cont {
+    height: 2rem;
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 2rem;
+}
+
+.cells-cont {
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
+
+.address-col {
+    border: 1px solid #dfe4fa;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+}
+
+.address-row {
+    border: 1px solid #dfe4fa;
+    text-align: center;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-cont {
+    display: flex;
+    width: calc(100vw - 2rem);
+}
+
+.cell {
+    min-width: 5rem;
+    height: 2rem;
+    align-items: center;
+    border-right: 1px solid #dfe4fa;
+    border-bottom: 1px solid #dfe4fa;
+    outline-color: #107C41;
+}
+
+.sheet-actions-cont>* {
+    display: inline-block;
+}
+
+.sheet-actions-cont {
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    /* padding-left: 0.5rem;
+    padding-right: 0.5rem; */
+    gap: 1rem;
+    height: 2rem;
+}
+
+.sheet-add-icon {
+    width: 2vw;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+
+.sheets-folder-cont {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+    width: 5rem;
+}
+
+.sheet-folder {
+    text-decoration: underline;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration-thickness: 3px;
+}
