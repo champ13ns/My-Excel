@@ -26,6 +26,13 @@ formulaBar.addEventListener("keydown", function(e) {
         console.log("20 ", inputFormula, " cellProp ", cellProp.formula)
         console.log("21 ", result)
         if (result == -1) removeChildFromParent(tbp);
+        addChildToGraphComponent(inputFormula, address);
+        let isCyclic = isGraphCyclic(graphComponentMatrix);
+        if (isCyclic === true) {
+            alert("Formula is cyclic!!");
+            removeChildFromGraphComponent(inputFormula, address);
+            return;
+        }
         let evaluatedValue = evaluateFormula(inputFormula);
         setcellUIAndCellprop(evaluatedValue, inputFormula, address);
         addChildToParent(inputFormula);
@@ -88,4 +95,28 @@ function setcellUIAndCellprop(evaluatedValue, formula, address) {
     cellProp.value = evaluatedValue;
     cellProp.formula = formula;
     console.log(matrix)
+}
+
+function addChildToGraphComponent(formula, childAdress) {
+    let [crid, ccid] = decode_rid_cid(childAdress);
+    let encoded_formula = formula.split(" ");
+    for (let i = 0; i < encoded_formula.length; i++) {
+        let asciiValue = encoded_formula[i].charCodeAt(0);
+        if (asciiValue >= 65 && asciiValue <= 90) {
+            let [rid, cid] = decode_rid_cid(encoded_formula[i]);
+            graphComponentMatrix[rid][cid].push([crid, ccid]);
+        }
+    }
+}
+
+function removeChildFromGraphComponent(inputFormula, childAdress) {
+    let [crid, ccid] = decode_rid_cid(childAdress);
+    let encoded_formula = inputFormula.split(" ");
+    for (let i = 0; i < encoded_formula.length; i++) {
+        let asciiValue = encoded_formula[i].charCodeAt(0);
+        if (asciiValue >= 65 && asciiValue <= 90) {
+            let [rid, cid] = decode_rid_cid(encoded_formula[i]);
+            graphComponentMatrix[rid][cid].pop();
+        }
+    }
 }
